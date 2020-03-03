@@ -7,6 +7,9 @@
     "test": "ava -v",
     "dev": "node ./bin/card.js"
   },
+  "bin": {
+    "connec": "./bin/card.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/THETIMEINC/connec.git"
