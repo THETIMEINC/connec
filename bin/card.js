@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fetch = require("node-fetch");
 const jwrap = require("jp-wrap")(60);
 const chalk = require("chalk");
