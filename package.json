@@ -3,10 +3,6 @@
   "version": "0.0.3",
   "description": "Personal card with npx. by connec.",
   "main": "bin/card.js",
-  "scripts": {
-    "test": "ava -v",
-    "dev": "node bin/card.js"
-  },
   "bin": {
     "connec": "bin/card.js"
   },
@@ -21,6 +17,7 @@
     "npx",
     "businesscard",
     "personalcard",
+    "website",
     "card",
     "connec",
     "sns",
@@ -32,10 +29,8 @@
   "bugs": {
     "url": "https://github.com/THETIMEINC/connec/issues"
   },
-  "homepage": "https://github.com/THETIMEINC/connec#readme",
-  "devDependencies": {
-    "ava": "^3.5.0"
-  },
+  "homepage": "https://conn.ec/",
+  "devDependencies": {},
   "dependencies": {
     "boxen": "^4.2.0",
     "chalk": "^3.0.0",
