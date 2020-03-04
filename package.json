@@ -1,6 +1,6 @@
 {
   "name": "connec",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Personal card with npx. by connec.",
   "main": "bin/card.js",
   "bin": {
