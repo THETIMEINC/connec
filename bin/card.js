@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fetch = require("node-fetch");
-const jwrap = require("jp-wrap")(60);
+const jpWrap = require("jp-wrap");
+const jwrap = new jpWrap(60);
 const chalk = require("chalk");
 const boxen = require("boxen");
 
@@ -15,16 +16,23 @@ const chalk_colors = {
   lightgray: "#C0C0C0"
 };
 const boxen_options = {
+  borderStyle: {
+    topLeft: "c",
+    topRight: "+",
+    bottomLeft: "+",
+    bottomRight: "c",
+    horizontal: "-",
+    vertical: " "
+  },
   padding: 1,
-  margin: 1,
-  borderStyle: "double"
+  margin: 0
   // borderColor: json.user.theme_color || "gray"
 };
 const myArgs = process.argv.slice(2);
 const user = myArgs[0] || "@connec_ppl";
 const url = `https://json.conn.ec/${user}`;
 
-let message = `Not found...\n\nGet Started for Free.\n`;
+let message = `${user} is not found...\n\nGet Started for Free.\n`;
 message += chalk.hex(chalk_colors.yellow).bold(`https://conn.ec/`);
 
 fetch(url, fetch_settings)
@@ -104,5 +112,8 @@ fetch(url, fetch_settings)
         ? `${data.labelWeb}${spacer}${data.web}${newline}`
         : "");
 
+    console.log("");
     console.log(boxen(output.trim(), boxen_options));
+    console.log(chalk.hex(chalk_colors.gray)("powerd by https://conn.ec/"));
+    console.log("");
   });
