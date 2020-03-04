@@ -114,6 +114,6 @@ fetch(url, fetch_settings)
 
     console.log("");
     console.log(boxen(output.trim(), boxen_options));
-    console.log(chalk.hex(chalk_colors.gray)("powerd by https://conn.ec/"));
+    console.log(chalk.hex(chalk_colors.gray)("powered by https://conn.ec/"));
     console.log("");
   });
