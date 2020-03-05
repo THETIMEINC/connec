@@ -6,15 +6,17 @@
   "bin": {
     "connec": "bin/card.js"
   },
+  "scripts": {
+    "test": "ava --verbose"
+  },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/THETIMEINC/connec.git"
   },
   "keywords": [
-    "npx",
     "businesscard",
     "personalcard",
     "website",
@@ -30,7 +32,9 @@
     "url": "https://github.com/THETIMEINC/connec/issues"
   },
   "homepage": "https://conn.ec/",
-  "devDependencies": {},
+  "devDependencies": {
+    "ava": "^3.5.0"
+  },
   "dependencies": {
     "boxen": "^4.2.0",
     "chalk": "^3.0.0",
