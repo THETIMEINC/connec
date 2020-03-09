@@ -29,11 +29,15 @@ const boxen_options = {
   margin: 0
 };
 const myArgs = process.argv.slice(2);
-const user = myArgs[0] || "@connec_ppl";
+const twitValid = /^@?(\w){1,15}$/;
+const user = twitValid.test(myArgs[0]) ? myArgs[0] : "";
+const message = user ? `${user} is not found.` : "invalid username.";
 const url = `https://json.conn.ec/${user}`;
-const message =
-  `${user} is not found...\n\nGet Started for Free.\n` +
-  chalk.hex(chalk_colors.yellow).bold(`https://conn.ec/`);
+
+if (!user) {
+  console.log(boxen(message.trim(), boxen_options));
+  return false;
+}
 
 fetch(url, fetch_settings)
   .then(res => res.json())
