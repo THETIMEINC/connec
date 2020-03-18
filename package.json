@@ -37,6 +37,8 @@
     "boxen": "^4.2.0",
     "chalk": "^3.0.0",
     "jp-wrap": "^0.2.2",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "universal-analytics": "^0.4.20",
+    "uuid": "^7.0.2"
   }
 }
