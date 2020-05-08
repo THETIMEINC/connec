@@ -31,7 +31,8 @@
   },
   "homepage": "https://conn.ec/",
   "devDependencies": {
-    "ava": "^3.7.1"
+    "ava": "^3.7.1",
+    "rollup": "^2.8.2"
   },
   "dependencies": {
     "boxen": "^4.2.0",
