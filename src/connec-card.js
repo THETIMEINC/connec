@@ -1,6 +1,6 @@
-import chalk from "chalk";
-import boxen from "boxen";
-import wordWrap from "./word-wrap";
+const chalk = require("chalk");
+const boxen = require("boxen");
+const wordWrap = require("./word-wrap");
 
 const chalk_colors = {
   yellow: "#FCC603",
@@ -25,7 +25,7 @@ const boxen_options = {
   margin: 0,
 };
 
-export default function (data) {
+module.exports = (data) => {
   const getMediaContent = (media_name) => {
     const getContent = data.media.find((medium) => medium.name === media_name);
 
@@ -107,4 +107,4 @@ export default function (data) {
   console.log("");
   console.log(boxen(output.trim(), boxen_options));
   console.log("");
-}
+};

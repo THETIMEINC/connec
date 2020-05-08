@@ -1,7 +1,7 @@
-import ua from "universal-analytics";
-import { v4 as uuidv4 } from "uuid";
+const ua = require("universal-analytics");
+const { v4: uuidv4 } = require("uuid");
 const ua_id = "UA-78832414-6";
 
-export default function () {
+module.exports = () => {
   return ua(ua_id, uuidv4());
-}
+};

@@ -1,7 +1,8 @@
-import fetch from "node-fetch";
-import connecCard from "./connec-card";
-import getUsername from "./get-username";
-import visitor from "./connec-ga";
+#!/usr/bin/env node
+const fetch = require("node-fetch");
+const connecCard = require("./connec-card");
+const getUsername = require("./get-username");
+const visitor = require("./connec-ga");
 
 const username = getUsername();
 const message = username ? `${username} is not found.` : "invalid username.";

@@ -1,5 +1,5 @@
 const jWrap = require("jp-wrap")(60);
 
-export default function (text) {
+module.exports = (text) => {
   return jWrap(text);
-}
+};
