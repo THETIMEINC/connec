@@ -1,15 +1,15 @@
-const chalk = require("chalk");
-const boxen = require("boxen");
-const wordWrap = require("./word-wrap");
+'use strict';function _interopDefault(e){return(e&&(typeof e==='object')&&'default'in e)?e['default']:e}var fetch=_interopDefault(require('node-fetch')),chalk=_interopDefault(require('chalk')),boxen=_interopDefault(require('boxen')),ua=_interopDefault(require('universal-analytics')),uuid=require('uuid');const jWrap = require("jp-wrap")(60);
 
-const chalk_colors = {
+function wordWrap (text) {
+  return jWrap(text);
+}const chalk_colors = {
   yellow: "#FCC603",
   blue: "#1da1f2",
   cyan: "#9EFFFF",
   green: "#9BEF8A",
   magenta: "#F9618C",
   gray: "#9999aa",
-  lightgray: "#dddddd"
+  lightgray: "#dddddd",
 };
 
 const boxen_options = {
@@ -19,15 +19,15 @@ const boxen_options = {
     bottomLeft: "+",
     bottomRight: "c",
     horizontal: "-",
-    vertical: " "
+    vertical: " ",
   },
   padding: 1,
-  margin: 0
+  margin: 0,
 };
 
-module.exports = data => {
-  const getMediaContent = media_name => {
-    const getContent = data.media.find(medium => medium.name === media_name);
+function connecCard (data) {
+  const getMediaContent = (media_name) => {
+    const getContent = data.media.find((medium) => medium.name === media_name);
 
     return getContent ? getContent.content : null;
   };
@@ -73,7 +73,7 @@ module.exports = data => {
     labelLinkedin: chalk.hex(chalk_colors.cyan)(" LinkedIn:"),
     labelWeb: chalk.hex(chalk_colors.cyan)("  Website:"),
     newline: "\n",
-    spacer: " "
+    spacer: " ",
   };
 
   const output =
@@ -107,4 +107,31 @@ module.exports = data => {
   console.log("");
   console.log(boxen(output.trim(), boxen_options));
   console.log("");
-};
+}const myArgs = process.argv.slice(2);
+// NOTE: regex similar to twitter.
+const twitValid = /^@.(\w){1,15}$/;
+const userparam = myArgs[0];
+
+function getUsername () {
+  return twitValid.test(userparam) ? userparam : "";
+}const ua_id = "UA-78832414-6";
+
+function visitor () {
+  return ua(ua_id, uuid.v4());
+}const username = getUsername();
+const message = username ? `${username} is not found.` : "invalid username.";
+
+if (!!username) {
+  const url = `https://json.conn.ec/${username}`;
+  const fetch_settings = { method: "get" };
+
+  fetch(url, fetch_settings)
+    .then((res) => res.json())
+    .then((json) => {
+      if (!json.user) return console.log(message.trim());
+      connecCard(json.user);
+      visitor().pageview(`/${username}`).send();
+    });
+} else {
+  console.log(message.trim());
+}

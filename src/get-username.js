@@ -3,6 +3,6 @@ const myArgs = process.argv.slice(2);
 const twitValid = /^@.(\w){1,15}$/;
 const userparam = myArgs[0];
 
-module.exports = () => {
+export default function () {
   return twitValid.test(userparam) ? userparam : "";
-};
+}
