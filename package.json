@@ -4,10 +4,9 @@
   "description": "Personal card with npx. by connec.",
   "main": "src/cli.js",
   "bin": {
-    "connec": "dist/bundle.js"
+    "connec": "src/cli.js"
   },
   "scripts": {
-    "build": "rollup --config",
     "test": "ava --verbose"
   },
   "engines": {
@@ -32,8 +31,7 @@
   },
   "homepage": "https://conn.ec/",
   "devDependencies": {
-    "ava": "^3.7.1",
-    "rollup": "^2.8.2"
+    "ava": "^3.7.1"
   },
   "dependencies": {
     "boxen": "^4.2.0",
