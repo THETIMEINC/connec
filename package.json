@@ -31,16 +31,16 @@
   },
   "homepage": "https://conn.ec/",
   "devDependencies": {
-    "ava": "^3.13.0"
+    "ava": "^3.15.0"
   },
   "dependencies": {
-    "boxen": "^4.2.0",
+    "boxen": "^5.0.0",
     "chalk": "^4.1.0",
     "express": "^4.17.1",
     "jp-wrap": "^0.2.2",
     "node-fetch": "^2.6.1",
-    "open-graph-scraper": "^4.6.0",
+    "open-graph-scraper": "^4.8.1",
     "universal-analytics": "^0.4.23",
-    "uuid": "^8.3.1"
+    "uuid": "^8.3.2"
   }
 }
