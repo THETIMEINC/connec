@@ -76,7 +76,6 @@ module.exports = (data) => {
     labelWeb: chalk.hex(this.chalk_colors.cyan)('  Website:'),
     newline: '\n',
     spacer: ' ',
-    footer: 'try it now. 👉  https://conn.ec/',
   }
 
   const output =
@@ -107,8 +106,5 @@ module.exports = (data) => {
       ? `${this.valiables.labelWeb}${this.valiables.spacer}${this.valiables.web}${this.valiables.newline}`
       : '')
 
-  console.log('')
-  console.log(boxen(output.trim(), this.boxen_options))
-  console.log(this.valiables.footer)
-  console.log('')
+  return boxen(output.trim(), this.boxen_options)
 }
