@@ -3,10 +3,12 @@
   "version": "0.0.18",
   "description": "Personal card with npx. by connec.",
   "main": "src/cli.js",
+  "prettier": "@thetime/prettier-config",
   "bin": {
     "connec": "src/cli.js"
   },
   "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "test": "ava --verbose"
   },
   "engines": {
@@ -31,9 +33,11 @@
   },
   "homepage": "https://conn.ec/",
   "devDependencies": {
-    "ava": "^3.15.0"
+    "ava": "^3.15.0",
+    "prettier": "^2.2.1"
   },
   "dependencies": {
+    "@thetime/prettier-config": "^1.0.0",
     "boxen": "^5.0.0",
     "chalk": "^4.1.0",
     "express": "^4.17.1",
