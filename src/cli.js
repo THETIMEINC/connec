@@ -3,10 +3,27 @@ const fetch = require('node-fetch')
 const connecCard = require('./connec-card')
 const getUsername = require('./get-username')
 const visitor = require('./connec-ga')
+const meow = require('meow')
 
 const username = getUsername()
 const message = username ? `${username} is not found.` : 'invalid username.'
 const footer = 'try it now. 👉  https://conn.ec/'
+
+const cli = meow(
+  `
+	Usage
+	  $ npx connec <username>
+
+	Examples
+	  $ npx connec @connec
+
+	Join us here 👉
+	  https://conn.ec/
+`,
+  {
+    flags: {},
+  },
+)
 
 const invalidCard = () => {
   console.log('')
