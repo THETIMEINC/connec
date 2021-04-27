@@ -3,17 +3,17 @@ const boxen = require('boxen')
 const wordWrap = require('./word-wrap')
 
 module.exports = (data) => {
-  this.chalk_colors = {
+  const chalkColors = {
     yellow: '#FCC603',
     blue: '#1da1f2',
     cyan: '#9EFFFF',
     green: '#9BEF8A',
     magenta: '#F9618C',
     gray: '#9999aa',
-    lightgray: '#dddddd',
+    lightGray: '#dddddd',
   }
 
-  this.boxen_options = {
+  const boxenOptions = {
     borderStyle: {
       topLeft: 'c',
       topRight: '+',
@@ -26,85 +26,81 @@ module.exports = (data) => {
     margin: 0,
   }
 
-  this.getMediaContent = (media_name) => {
+  const getMediaContent = (media_name) => {
     const getContent = data.media.find((medium) => medium.name === media_name)
 
     return getContent ? getContent.content : null
   }
 
   // Text style using chalk
-  this.valiables = {
-    screen_name: chalk
-      .hex(this.chalk_colors.yellow)
-      .bold(wordWrap(data.screen_name)),
-    user_name: chalk.hex(this.chalk_colors.lightgray)(`@${data.user_name}`),
+  const valiable = {
+    screen_name: chalk.hex(chalkColors.yellow).bold(wordWrap(data.screen_name)),
+    user_name: chalk.hex(chalkColors.lightGray)(`@${data.user_name}`),
     name: `${chalk
-      .hex(this.chalk_colors.yellow)
-      .bold(wordWrap(data.screen_name))} / ${chalk.hex(
-      this.chalk_colors.lightgray,
-    )(`@${data.user_name}`)}`,
+      .hex(chalkColors.yellow)
+      .bold(wordWrap(data.screen_name))} / ${chalk.hex(chalkColors.lightGray)(
+      `@${data.user_name}`,
+    )}`,
     connec: chalk.bold(`https://conn.ec/~${data.user_name}`),
-    twitter: chalk.hex(this.chalk_colors.green)(
+    twitter: chalk.hex(chalkColors.green)(
       `https://twitter.com/${data.user_name}`,
     ),
-    facebook: chalk.hex(this.chalk_colors.green)(
-      `https://facebook.com/${this.getMediaContent('facebook')}`,
+    facebook: chalk.hex(chalkColors.green)(
+      `https://facebook.com/${getMediaContent('facebook')}`,
     ),
-    instagram: chalk.hex(this.chalk_colors.green)(
-      `https://instagram.com/${this.getMediaContent('instagram')}`,
+    instagram: chalk.hex(chalkColors.green)(
+      `https://instagram.com/${getMediaContent('instagram')}`,
     ),
-    youtube: chalk.hex(this.chalk_colors.green)(
-      `https://youtube.com/${this.getMediaContent('youtube')}`,
+    youtube: chalk.hex(chalkColors.green)(
+      `https://youtube.com/${getMediaContent('youtube')}`,
     ),
-    github: chalk.hex(this.chalk_colors.green)(
-      `https://github.com/${this.getMediaContent('github')}`,
+    github: chalk.hex(chalkColors.green)(
+      `https://github.com/${getMediaContent('github')}`,
     ),
-    linkedin: chalk.hex(this.chalk_colors.green)(
-      `https://www.linkedin.com/${this.getMediaContent('linkedin')}`,
+    linkedin: chalk.hex(chalkColors.green)(
+      `https://www.linkedin.com/${getMediaContent('linkedin')}`,
     ),
-    web: chalk.hex(this.chalk_colors.green)(
-      `${this.getMediaContent('website')}`,
-    ),
-    profile: chalk.hex(this.chalk_colors.gray)(wordWrap(data.profile)),
-    labelConnec: chalk.hex(this.chalk_colors.cyan)('   connec:'),
-    labelTwitter: chalk.hex(this.chalk_colors.cyan)('  Twitter:'),
-    labelFacebook: chalk.hex(this.chalk_colors.cyan)(' Facebook:'),
-    labelInstagram: chalk.hex(this.chalk_colors.cyan)('Instagram:'),
-    labelYoutube: chalk.hex(this.chalk_colors.cyan)('  YouTube:'),
-    labelGithub: chalk.hex(this.chalk_colors.cyan)('   GitHub:'),
-    labelLinkedin: chalk.hex(this.chalk_colors.cyan)(' LinkedIn:'),
-    labelWeb: chalk.hex(this.chalk_colors.cyan)('  Website:'),
+    web: chalk.hex(chalkColors.green)(`${getMediaContent('website')}`),
+    profile: chalk.hex(chalkColors.gray)(wordWrap(data.profile)),
+    labelConnec: chalk.hex(chalkColors.cyan)('   connec:'),
+    labelTwitter: chalk.hex(chalkColors.cyan)('  Twitter:'),
+    labelFacebook: chalk.hex(chalkColors.cyan)(' Facebook:'),
+    labelInstagram: chalk.hex(chalkColors.cyan)('Instagram:'),
+    labelYoutube: chalk.hex(chalkColors.cyan)('  YouTube:'),
+    labelGithub: chalk.hex(chalkColors.cyan)('   GitHub:'),
+    labelLinkedin: chalk.hex(chalkColors.cyan)(' LinkedIn:'),
+    labelWeb: chalk.hex(chalkColors.cyan)('  Website:'),
     newline: '\n',
     spacer: ' ',
   }
 
   const output =
-    `${this.valiables.screen_name}${this.valiables.newline}` +
-    `${this.valiables.user_name}${this.valiables.newline}` +
-    `${this.valiables.newline}` +
-    `${this.valiables.profile}${this.valiables.newline}` +
-    // `${this.valiables.newline}` +
-    `${this.valiables.connec}${this.valiables.newline}` +
-    `${this.valiables.newline}` +
-    `${this.valiables.labelTwitter}${this.valiables.spacer}${this.valiables.twitter}${this.valiables.newline}` +
-    (this.getMediaContent('facebook')
-      ? `${this.valiables.labelFacebook}${this.valiables.spacer}${this.valiables.facebook}${this.valiables.newline}`
+    `${valiable.screen_name}${valiable.newline}` +
+    `${valiable.user_name}${valiable.newline}` +
+    `${valiable.newline}` +
+    `${valiable.profile}${valiable.newline}` +
+    // `${valiable.newline}` +
+    `${valiable.connec}${valiable.newline}` +
+    `${valiable.newline}` +
+    `${valiable.labelTwitter}${valiable.spacer}${valiable.twitter}${valiable.newline}` +
+    (getMediaContent('facebook')
+      ? `${valiable.labelFacebook}${valiable.spacer}${valiable.facebook}${valiable.newline}`
       : '') +
-    (this.getMediaContent('instagram')
-      ? `${this.valiables.labelInstagram}${this.valiables.spacer}${this.valiables.instagram}${this.valiables.newline}`
+    (getMediaContent('instagram')
+      ? `${valiable.labelInstagram}${valiable.spacer}${valiable.instagram}${valiable.newline}`
       : '') +
-    (this.getMediaContent('youtube')
-      ? `${this.valiables.labelYoutube}${this.valiables.spacer}${this.valiables.youtube}${this.valiables.newline}`
+    (getMediaContent('youtube')
+      ? `${valiable.labelYoutube}${valiable.spacer}${valiable.youtube}${valiable.newline}`
       : '') +
-    (this.getMediaContent('github')
-      ? `${this.valiables.labelGithub}${this.valiables.spacer}${this.valiables.github}${this.valiables.newline}`
+    (getMediaContent('github')
+      ? `${valiable.labelGithub}${valiable.spacer}${valiable.github}${valiable.newline}`
       : '') +
-    (this.getMediaContent('linkedin')
-      ? `${this.valiables.labelLinkedin}${this.valiables.spacer}${this.valiables.linkedin}${this.valiables.newline}`
+    (getMediaContent('linkedin')
+      ? `${valiable.labelLinkedin}${valiable.spacer}${valiable.linkedin}${valiable.newline}`
       : '') +
-    (this.getMediaContent('website')
-      ? `${this.valiables.labelWeb}${this.valiables.spacer}${this.valiables.web}${this.valiables.newline}`
+    (getMediaContent('website')
+      ? `${valiable.labelWeb}${valiable.spacer}${valiable.web}${valiable.newline}`
       : '')
 
-  return boxen(output.trim(), this.boxen_options)
+  return boxen(output.trim(), boxenOptions)
 }
