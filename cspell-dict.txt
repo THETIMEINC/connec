@@ -1,3 +1,6 @@
 pageview
 connec
 thetime
+youtube
+linkedin
+valiable
