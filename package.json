@@ -1,6 +1,6 @@
 {
   "name": "connec",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "description": "Personal card with npx. by connec.",
   "prettier": "@thetime/prettier-config",
   "bin": {
