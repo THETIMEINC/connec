@@ -22,6 +22,7 @@
     "*.{png,jpg,pdf}",
     "**/*.snap",
     "**/*.trie",
+    "README.md",
     "**/coverage/**",
     "**/dist/**",
     "**/jest.config.js",

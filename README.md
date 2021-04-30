@@ -11,10 +11,10 @@ This is an idea, not an ads.
 Install Node.js, then:
 
 ```shell
-$ npx connec <@yourname>
+$ npx connec <@username>
 ```
 
-Get the information by specifying the [connec](https://conn.ec/?ref=github) "@yourname".
+Get the information by specifying the [connec](https://conn.ec/?ref=github) "@username".
 
 ### Example
 
@@ -29,10 +29,6 @@ You can also use github repo.
 ```shell
 $ npx github:thetimeinc/connec @hirorock
 ```
-
-## Installation
-
-This is not something to install and use.
 
 ## Inspired
 
