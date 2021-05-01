@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 import meow from 'meow'
-import { Connec } from './lib/connec'
-import { HttpClient } from './lib/http-client'
+import { Connec } from './util/connec'
 
-const apiHost = 'https://json.conn.ec/'
 const cli = meow(
   `
 	Usage
@@ -16,16 +14,13 @@ const cli = meow(
 	  https://conn.ec/`,
 )
 
-async function getConnec() {
+async function main() {
   const connec = new Connec(cli.input[0])
+  const username = connec.getUsername()
 
-  const client = new HttpClient({
-    url: `${apiHost}${connec.getUsername()}`,
-  })
-
-  const json = await client.getJson()
-
-  console.log(connec.getCard(json))
+  username
+    ? console.log(connec.getCard(await connec.getJson()))
+    : console.log(connec.setCard(connec.getErrorMessage()))
 }
 
-getConnec()
+main()

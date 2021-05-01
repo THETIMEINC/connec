@@ -1,9 +1,13 @@
+import fetch from 'node-fetch'
 import { card } from './card'
 export class Connec {
   private username: string
+  _url: string
 
   constructor(param: string) {
+    const apiHost = 'https://json.conn.ec/'
     this.username = this.setUsername(param)
+    this._url = `${apiHost}${this.username}`
   }
 
   setUsername(param: string): string {
@@ -20,8 +24,10 @@ export class Connec {
     return `\n${txt}\n${footer}\n\n`
   }
 
-  getErrorMessage(userName: string): string {
-    return userName ? `${userName} is not found.` : 'invalid username.'
+  getErrorMessage(): string {
+    return this.username
+      ? `${this.username} is not found.`
+      : 'invalid username.'
   }
 
   getUsername(): string {
@@ -32,6 +38,12 @@ export class Connec {
     const getCard = card(json)
     return getCard
       ? this.setCard(getCard)
-      : this.setCard(this.getErrorMessage(this.username))
+      : this.setCard(this.getErrorMessage())
+  }
+
+  async getJson(): Promise<ApiUser> {
+    const res = await fetch(this._url, { method: 'get' })
+    const json = res.json()
+    return json
   }
 }
