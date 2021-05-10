@@ -33,14 +33,17 @@ export function card(json: ApiUser): string {
 
   function setCardFormat(data: User) {
     // Text style using chalk
+    const data_screen_name = data.screen_name || ' '
+    const data_profile = data.profile || ' '
+
     const valiable = {
       screen_name: chalk
         .hex(chalkColors.yellow)
-        .bold(wordWrap(data.screen_name)),
+        .bold(wordWrap(data_screen_name)),
       user_name: chalk.hex(chalkColors.lightGray)(`@${data.user_name}`),
       name: `${chalk
         .hex(chalkColors.yellow)
-        .bold(wordWrap(data.screen_name))} / ${chalk.hex(chalkColors.lightGray)(
+        .bold(wordWrap(data_screen_name))} / ${chalk.hex(chalkColors.lightGray)(
         `@${data.user_name}`,
       )}`,
       connec: chalk.bold(`https://conn.ec/~${data.user_name}`),
@@ -65,7 +68,7 @@ export function card(json: ApiUser): string {
       web: chalk.hex(chalkColors.green)(
         `${getMediaContent(data.media, 'website')}`,
       ),
-      profile: chalk.hex(chalkColors.gray)(wordWrap(data.profile)),
+      profile: chalk.hex(chalkColors.gray)(wordWrap(data_profile)),
       labelConnec: chalk.hex(chalkColors.cyan)('   connec:'),
       labelTwitter: chalk.hex(chalkColors.cyan)('  Twitter:'),
       labelFacebook: chalk.hex(chalkColors.cyan)(' Facebook:'),
