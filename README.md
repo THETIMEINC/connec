@@ -18,17 +18,11 @@ Get the information by specifying the [connec](https://conn.ec/?ref=github) "@us
 
 ### Example
 
-https://conn.ec/@hirorock
-
 ```shell
 $ npx connec @hirorock
 ```
 
-You can also use github repo.
-
-```shell
-$ npx github:thetimeinc/connec @hirorock
-```
+https://conn.ec/@hirorock
 
 ## Inspired
 
