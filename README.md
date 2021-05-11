@@ -26,7 +26,6 @@ https://conn.ec/@hirorock
 
 ## Inspired
 
-- [sindresorhus/sindresorhus](https://github.com/sindresorhus/sindresorhus)
 - [bnb/bitandbang](https://github.com/bnb/bitandbang)
 
 ## Privacy
