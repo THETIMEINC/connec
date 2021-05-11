@@ -2,8 +2,7 @@
 import meow from 'meow'
 import { Connec } from './util/connec'
 
-const cli = meow(
-  `
+const cli = meow(`
 	Usage
 	  $ npx connec <username>
 
@@ -11,8 +10,7 @@ const cli = meow(
 	  $ npx connec @connec
 
 	Join us here 👉
-	  https://conn.ec/`,
-)
+	  https://conn.ec/`)
 
 async function main() {
   const connec = new Connec(cli.input[0])
