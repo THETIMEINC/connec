@@ -5,10 +5,10 @@ import { wordWrap } from './word-wrap'
 export function card(json: ApiUser): string {
   const boxenOption = {
     borderStyle: {
-      topLeft: 'c',
-      topRight: '+',
-      bottomLeft: '+',
-      bottomRight: 'c',
+      topLeft: '-',
+      topRight: '-',
+      bottomLeft: '-',
+      bottomRight: '-',
       horizontal: '-',
       vertical: ' ',
     },
@@ -71,24 +71,24 @@ export function card(json: ApiUser): string {
       `${valiable.newline}` +
       `${valiable.connec}${valiable.newline}` +
       `${valiable.newline}` +
-      `${valiable.labelTwitter}${valiable.spacer}${valiable.twitter}${valiable.newline}` +
+      `${valiable.labelTwitter}${valiable.spacer}${valiable.twitter}` +
       (getMediaContent(data.media, 'facebook')
-        ? `${valiable.labelFacebook}${valiable.spacer}${valiable.facebook}${valiable.newline}`
+        ? `${valiable.newline}${valiable.labelFacebook}${valiable.spacer}${valiable.facebook}`
         : '') +
       (getMediaContent(data.media, 'instagram')
-        ? `${valiable.labelInstagram}${valiable.spacer}${valiable.instagram}${valiable.newline}`
+        ? `${valiable.newline}${valiable.labelInstagram}${valiable.spacer}${valiable.instagram}`
         : '') +
       (getMediaContent(data.media, 'youtube')
-        ? `${valiable.labelYoutube}${valiable.spacer}${valiable.youtube}${valiable.newline}`
+        ? `${valiable.newline}${valiable.labelYoutube}${valiable.spacer}${valiable.youtube}`
         : '') +
       (getMediaContent(data.media, 'github')
-        ? `${valiable.labelGithub}${valiable.spacer}${valiable.github}${valiable.newline}`
+        ? `${valiable.newline}${valiable.labelGithub}${valiable.spacer}${valiable.github}`
         : '') +
       (getMediaContent(data.media, 'linkedin')
-        ? `${valiable.labelLinkedin}${valiable.spacer}${valiable.linkedin}${valiable.newline}`
+        ? `${valiable.newline}${valiable.labelLinkedin}${valiable.spacer}${valiable.linkedin}`
         : '') +
       (getMediaContent(data.media, 'website')
-        ? `${valiable.labelWeb}${valiable.spacer}${valiable.web}${valiable.newline}`
+        ? `${valiable.newline}${valiable.labelWeb}${valiable.spacer}${valiable.web}`
         : '')
     return output
   }
