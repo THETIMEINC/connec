@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
 import { card } from './card'
+import ga from './ga'
 export class Connec {
   private username: string
   _url: string
@@ -35,6 +36,8 @@ export class Connec {
   }
 
   getCard(json: ApiUser): string {
+    ga().pageview(`/${this.username}`).send()
+
     const getCard = card(json)
     return getCard
       ? this.setCard(getCard)
