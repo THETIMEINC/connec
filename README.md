@@ -4,25 +4,21 @@ This is an idea, not an ads.
 
 > The [connec](https://conn.ec/) CLI
 
-<img src="screenshot.png" width="500">
+<img src="screenshot.gif" width="500">
 
 ## Usage
 
-Install Node.js, then:
+1. Get a **connec** Account 👉 https://conn.ec/
+2. Install Node.js, then:
 
-```shell
-$ npx connec <@username>
-```
+   ```shell
+   $ npx connec <@username>
+   ```
 
-Get the information by specifying the [connec](https://conn.ec/?ref=github) "@username".
-
-### Example
-
-```shell
-$ npx connec @hirorock
-```
-
-https://conn.ec/@hirorock
+   ```
+   // e.g. https://conn.ec/@hirorock
+   $ npx connec @hirorock
+   ```
 
 ## Inspired
 
