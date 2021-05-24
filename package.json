@@ -7,7 +7,7 @@
     "connec": "dist/index.js"
   },
   "scripts": {
-    "build": "ncc build src/index.ts --minify",
+    "build": "npm run fix && npm run format && ncc build src/index.ts --minify",
     "watch": "ncc build src/index.ts --watch",
     "start": "ncc build src/index.ts",
     "lint": "eslint . --ext .js,.ts",
